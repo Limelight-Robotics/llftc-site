@@ -1,0 +1,352 @@
+/* CKEditor Dark Theme using CSS Variables - Following Official CKEditor 5 Documentation */
+
+/* Define CSS variables for dark theme customization */
+:root {
+    /* Base colors for CKEditor theming */
+    --ck-color-base-background: rgb(39, 39, 42);
+    --ck-color-base-foreground: rgb(244, 244, 245);
+    --ck-color-base-border: rgb(63, 63, 70);
+    --ck-color-focus-border: rgb(99, 102, 241);
+    --ck-color-text: rgb(244, 244, 245);
+    
+    /* Toolbar colors */
+    --ck-color-toolbar-background: rgb(39, 39, 42);
+    --ck-color-toolbar-border: rgb(63, 63, 70);
+    
+    /* Button colors */
+    --ck-color-button-default-background: transparent;
+    --ck-color-button-default-hover-background: rgb(63, 63, 70);
+    --ck-color-button-on-background: rgb(99, 102, 241);
+    --ck-color-button-on-hover-background: rgb(79, 70, 229);
+    --ck-color-button-save: rgb(34, 197, 94);
+    --ck-color-button-cancel: hsl(0, 0%, 70%);
+    
+    /* Dropdown colors */
+    --ck-color-dropdown-panel-background: rgb(39, 39, 42);
+    --ck-color-dropdown-panel-border: rgb(63, 63, 70);
+    
+    /* List colors */
+    --ck-color-list-background: rgb(39, 39, 42);
+    --ck-color-list-button-hover-background: rgb(63, 63, 70);
+    --ck-color-list-button-on-background: rgb(82, 82, 91);
+    
+    /* Input colors */
+    --ck-color-input-background: rgb(63, 63, 70);
+    --ck-color-input-border: rgb(82, 82, 91);
+    --ck-color-input-text: rgb(244, 244, 245);
+    
+    /* Shadow for panels */
+    --ck-color-shadow-drop: rgba(0, 0, 0, 0.3);
+    --ck-color-shadow-inner: rgba(0, 0, 0, 0.1);
+}
+
+/* Editor editable area */
+.ck-editor__editable {
+    background-color: rgb(63, 63, 70);
+    color: rgb(244, 244, 245);
+    border-color: rgb(82, 82, 91);
+    min-height: 400px;
+}
+
+/* Content area styling for the zinc theme */
+.ck-content {
+    background-color: rgb(63, 63, 70);
+    color: rgb(244, 244, 245);
+    border-color: rgb(82, 82, 91);
+}
+
+/* Content elements styling */
+.ck-content h1, 
+.ck-content h2, 
+.ck-content h3, 
+.ck-content h4, 
+.ck-content h5, 
+.ck-content h6 {
+    color: rgb(244, 244, 245);
+}
+
+.ck-content p {
+    color: rgb(244, 244, 245);
+}
+
+.ck-content ul, 
+.ck-content ol {
+    color: rgb(244, 244, 245);
+}
+
+.ck-content blockquote {
+    border-left: 4px solid rgb(99, 102, 241);
+    color: rgb(212, 212, 216);
+    background-color: rgba(39, 39, 42, 0.3);
+}
+
+.ck-content pre {
+    background-color: rgb(24, 24, 27);
+    border: 1px solid rgb(39, 39, 42);
+    color: rgb(244, 244, 245);
+}
+
+.ck-content code {
+    background-color: rgb(39, 39, 42);
+    color: rgb(244, 244, 245);
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.ck-content a {
+    color: rgb(96, 165, 250);
+}
+
+.ck-content a:hover {
+    color: rgb(59, 130, 246);
+}
+
+/* Input styling */
+.ck-input {
+    background-color: var(--ck-color-input-background);
+    border-color: var(--ck-color-input-border);
+    color: var(--ck-color-input-text);
+}
+
+.ck-input:focus {
+    border-color: var(--ck-color-focus-border);
+    box-shadow: 0 0 0 1px var(--ck-color-focus-border);
+}
+
+/* Balloon panel styling */
+.ck-balloon-panel {
+    background-color: var(--ck-color-dropdown-panel-background);
+    border-color: var(--ck-color-dropdown-panel-border);
+    color: var(--ck-color-text);
+}
+
+/* Link form styling */
+.ck-link-form {
+    background-color: var(--ck-color-dropdown-panel-background);
+}
+
+.ck-link-form .ck-input {
+    background-color: var(--ck-color-input-background);
+    border-color: var(--ck-color-input-border);
+    color: var(--ck-color-input-text);
+}
+
+/* Color grid for color picker - DO NOT STYLE COLOR TILES AT ALL */
+.ck-color-grid {
+    background-color: var(--ck-color-dropdown-panel-background);
+}
+
+.ck-color-selector {
+    background-color: var(--ck-color-dropdown-panel-background);
+}
+
+.ck-color-selector__color-picker {
+    background-color: var(--ck-color-input-background);
+    border-color: var(--ck-color-input-border);
+}
+
+/* Dropdown arrow styling */
+.ck-dropdown__arrow {
+    color: var(--ck-color-text);
+}
+
+/* Ensure proper contrast for any remaining elements */
+.ck-editor {
+    color-scheme: dark;
+}
+
+/* Override any remaining light theme elements */
+.ck.ck-editor .ck-content.ck-focused {
+    border-color: var(--ck-color-focus-border);
+}
+
+.ck.ck-editor .ck-content.ck-blurred {
+    border-color: var(--ck-color-base-border);
+}
+
+/* Comprehensive dropdown panel styling */
+.ck-dropdown__panel {
+    background-color: var(--ck-color-dropdown-panel-background) !important;
+    border-color: var(--ck-color-dropdown-panel-border) !important;
+    color: var(--ck-color-text) !important;
+    box-shadow: 0 10px 25px var(--ck-color-shadow-drop) !important;
+}
+
+/* Fix dropdown positioning to prevent cutoff */
+.ck-dropdown__panel {
+    max-width: none !important;
+    overflow: visible !important;
+    z-index: 9999 !important;
+}
+
+/* Ensure dropdowns can extend beyond container bounds */
+.ck-toolbar {
+    overflow: visible !important;
+}
+
+.ck-editor {
+    overflow: visible !important;
+}
+
+.ck-editor__main {
+    overflow: visible !important;
+}
+
+/* Force dropdown panels to use proper positioning */
+.ck-dropdown__panel {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: auto !important;
+    transform: none !important;
+}
+
+/* Specific styling for dropdown lists - EXCLUDE color grid tiles */
+.ck-dropdown__panel .ck-list {
+    background-color: var(--ck-color-list-background) !important;
+}
+
+.ck-dropdown__panel .ck-list__item:not(.ck-color-grid__tile) {
+    color: var(--ck-color-text) !important;
+    background-color: transparent !important;
+}
+
+.ck-dropdown__panel .ck-list__item:not(.ck-color-grid__tile):hover {
+    background-color: var(--ck-color-list-button-hover-background) !important;
+    color: var(--ck-color-text) !important;
+}
+
+.ck-dropdown__panel .ck-list__item:not(.ck-color-grid__tile) .ck-button {
+    color: var(--ck-color-text) !important;
+    background-color: transparent !important;
+}
+
+.ck-dropdown__panel .ck-list__item:not(.ck-color-grid__tile):hover .ck-button {
+    color: var(--ck-color-text) !important;
+    background-color: transparent !important;
+}
+
+/* Toolbar button styling - EXCLUDE color grid tiles */
+.ck-toolbar .ck-button:not(.ck-color-grid__tile) {
+    color: var(--ck-color-text) !important;
+    background-color: var(--ck-color-button-default-background) !important;
+}
+
+.ck-toolbar .ck-button:not(.ck-color-grid__tile):hover {
+    background-color: var(--ck-color-button-default-hover-background) !important;
+    color: var(--ck-color-text) !important;
+}
+
+.ck-toolbar .ck-button:not(.ck-color-grid__tile).ck-on {
+    background-color: var(--ck-color-button-on-background) !important;
+    color: white !important;
+}
+
+/* Specific fixes for code block dropdown */
+.ck-code-block-dropdown .ck-dropdown__panel {
+    background-color: var(--ck-color-dropdown-panel-background) !important;
+    border: 1px solid var(--ck-color-dropdown-panel-border) !important;
+    color: var(--ck-color-text) !important;
+}
+
+.ck-code-block-dropdown .ck-dropdown__panel .ck-list__item {
+    color: var(--ck-color-text) !important;
+    background-color: transparent !important;
+}
+
+.ck-code-block-dropdown .ck-dropdown__panel .ck-list__item:hover {
+    background-color: var(--ck-color-list-button-hover-background) !important;
+    color: var(--ck-color-text) !important;
+}
+
+.ck-code-block-dropdown .ck-dropdown__panel .ck-list__item .ck-button {
+    color: var(--ck-color-text) !important;
+    background-color: transparent !important;
+}
+
+.ck-code-block-dropdown .ck-dropdown__panel .ck-list__item:hover .ck-button {
+    color: var(--ck-color-text) !important;
+    background-color: transparent !important;
+}
+
+/* Fix dropdown button labels */
+.ck-dropdown__button .ck-button__label {
+    color: var(--ck-color-text) !important;
+}
+
+/* Fix heading dropdown specifically */
+.ck-heading-dropdown .ck-dropdown__panel {
+    background-color: var(--ck-color-dropdown-panel-background) !important;
+    border: 1px solid var(--ck-color-dropdown-panel-border) !important;
+}
+
+.ck-heading-dropdown .ck-dropdown__panel .ck-list__item {
+    color: var(--ck-color-text) !important;
+}
+
+.ck-heading-dropdown .ck-dropdown__panel .ck-list__item:hover {
+    background-color: var(--ck-color-list-button-hover-background) !important;
+}
+
+/* Ensure proper z-index stacking for all dropdown panels */
+.ck.ck-dropdown__panel {
+    z-index: 9999 !important;
+    position: absolute !important;
+}
+
+/* Fix any remaining white backgrounds in dropdowns */
+.ck-dropdown__panel,
+.ck-dropdown__panel .ck-list,
+.ck-dropdown__panel .ck-list__item {
+    background-color: var(--ck-color-dropdown-panel-background) !important;
+}
+
+/* Force dropdown text to be visible - but be specific about which elements */
+.ck-dropdown__panel .ck-list__item .ck-button__label,
+.ck-dropdown__panel .ck-button__label,
+.ck-dropdown__panel .ck-list__item:not(.ck-color-grid__tile) {
+    color: var(--ck-color-text) !important;
+}
+
+
+/* Style the color dropdown panel background only */
+.ck-color-dropdown .ck-dropdown__panel {
+    background-color: var(--ck-color-dropdown-panel-background) !important;
+    border: 1px solid var(--ck-color-dropdown-panel-border) !important;
+}
+
+
+/* Prevent container overflow issues AND content cutoff */
+.ck-editor__top,
+.ck-editor__main,
+.ck-editor__editable {
+    overflow: visible !important;
+}
+
+/* Fix content area to prevent bullet points and other content from being cut off */
+.ck-content {
+    overflow: visible !important;
+    padding: 20px !important; /* Add padding to prevent cutoff */
+}
+
+/* Ensure lists and bullets are visible */
+.ck-content ul,
+.ck-content ol {
+    padding-left: 10px !important; /* Ensure bullet points have space */
+    margin-left: 0 !important;
+}
+
+/* Fix for containers that might clip dropdowns AND content */
+body {
+    overflow-x: visible !important;
+}
+
+.container, .max-w-7xl, .mx-auto {
+    overflow: visible !important;
+}
+
+/* Hide the "Powered by CKEditor" element */
+.ck.ck-powered-by {
+    display: none !important;
+}
+

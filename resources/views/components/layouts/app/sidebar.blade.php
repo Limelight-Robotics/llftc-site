@@ -166,6 +166,10 @@
 
         {{ $slot }}
 
+        <!-- CKEditor 5 Scripts - Load once globally -->
+        <script src="https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.umd.js"></script>
+        <script src="{{ asset('js/ckeditor-config.js') }}"></script>
+
         @fluxScripts
     </body>
 </html>

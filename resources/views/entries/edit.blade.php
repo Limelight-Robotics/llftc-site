@@ -5,10 +5,10 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 min-h-screen">
-        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-zinc-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-zinc-100">
+    <div class="py-12 min-h-screen bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
+        <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-zinc-800/95 via-zinc-700/90 to-zinc-800/95 overflow-hidden shadow-xl border border-zinc-600/50 backdrop-blur-sm sm:rounded-xl">
+                <div class="p-8 text-zinc-100">
                     <form method="POST" action="{{ route('entries.update', $entry) }}">
                         @csrf
                         @method('PUT')
@@ -85,104 +85,4 @@
             </div>
         </div>
     </div>
-
-    <!-- CKEditor 5 Styles -->
-    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.css">
-    <style>
-        .ck-editor__editable {
-            background-color: #3f3f46 !important;
-            color: #f4f4f5 !important;
-            border-color: #52525b !important;
-            min-height: 400px;
-        }
-        .ck-toolbar {
-            background-color: #27272a !important;
-            border-color: #52525b !important;
-        }
-        .ck-button {
-            color: #f4f4f5 !important;
-        }
-        .ck-button:hover {
-            background-color: #52525b !important;
-        }
-        .ck-button.ck-on {
-            background-color: #3b82f6 !important;
-            color: white !important;
-        }
-        .ck-dropdown__panel {
-            background-color: #27272a !important;
-            border-color: #52525b !important;
-        }
-        .ck-list__item {
-            color: #f4f4f5 !important;
-        }
-        .ck-list__item:hover {
-            background-color: #52525b !important;
-        }
-        .ck-content pre {
-            background-color: #18181b !important;
-            border: 1px solid #27272a !important;
-            color: #f4f4f5 !important;
-        }
-        .ck-content blockquote {
-            border-left: 4px solid #3b82f6 !important;
-            color: #d4d4d8 !important;
-        }
-    </style>
-
-    <!-- CKEditor 5 Scripts -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.umd.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded, checking for CKEDITOR...');
-            console.log('CKEDITOR object:', typeof CKEDITOR !== 'undefined' ? CKEDITOR : 'undefined');
-            
-            if (typeof CKEDITOR === 'undefined') {
-                console.error('CKEditor not loaded');
-                return;
-            }
-
-            const {
-                ClassicEditor,
-                Essentials,
-                Bold,
-                Italic,
-                Font,
-                Paragraph
-            } = CKEDITOR;
-
-            ClassicEditor
-                .create(document.querySelector('#content'), {
-                    plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                    toolbar: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                })
-                .then(editor => {
-                    window.editor = editor;
-                    console.log('CKEditor 5 initialized successfully');
-                    
-                    // Set initial content from textarea if any
-                    const textareaContent = document.querySelector('#content').value;
-                    if (textareaContent) {
-                        editor.setData(textareaContent);
-                    }
-                    
-                    // Hide the original textarea
-                    document.querySelector('#content').style.display = 'none';
-                    
-                    // Update textarea on editor change
-                    editor.model.document.on('change:data', () => {
-                        document.querySelector('#content').value = editor.getData();
-                    });
-                })
-                .catch(error => {
-                    console.error('CKEditor 5 error:', error);
-                    console.error('Error details:', error.message);
-                    // Fall back to plain textarea if editor fails
-                    document.querySelector('#content').style.display = 'block';
-                });
-        });
-    </script>
 </x-layouts.app>

@@ -33,9 +33,10 @@ class TeamController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255|unique:teams,name',
+            'description' => 'nullable|string|max:1000',
         ]);
 
-        Team::create($request->only('name'));
+        Team::create($request->only(['name', 'description']));
 
         return redirect()->route('admin.teams.index')->with('success', 'Team created successfully!');
     }
@@ -63,9 +64,10 @@ class TeamController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255|unique:teams,name,' . $team->id,
+            'description' => 'nullable|string|max:1000',
         ]);
 
-        $team->update($request->only('name'));
+        $team->update($request->only(['name', 'description']));
 
         return redirect()->route('admin.teams.index')->with('success', 'Team updated successfully!');
     }

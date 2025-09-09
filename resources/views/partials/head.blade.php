@@ -12,6 +12,13 @@
 
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+<!-- CKEditor 5 Styles - Load once globally -->
+<link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.css">
+<link rel="stylesheet" href="{{ asset('css/ckeditor-dark.css') }}">
+
+<!-- WYSIWYG Content Styles - Override Tailwind CSS -->
+<link rel="stylesheet" href="{{ asset('css/wysiwyg-content.css') }}?v={{ time() }}">
+
 <script>
     // Force dark mode
     document.documentElement.classList.add('dark');

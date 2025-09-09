@@ -14,11 +14,14 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'force.password.change'])->group(function () {
     Route::resource('entries', EntryController::class)->except(['index']);
     
     Route::redirect('settings', 'settings/profile');
     Route::get('settings/profile', Profile::class)->name('settings.profile');
+});
+
+Route::middleware(['auth'])->group(function () {
     Route::get('settings/password', Password::class)->name('settings.password');
 });
 
@@ -26,7 +29,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/entries', [EntryController::class, 'index'])->name('entries.index');
 Route::get('/entries/{entry}', [EntryController::class, 'show'])->name('entries.show');
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth', 'admin', 'force.password.change'])->group(function () {
     Route::resource('admin/users', UserController::class)->names([
         'index' => 'admin.users.index',
         'create' => 'admin.users.create',
